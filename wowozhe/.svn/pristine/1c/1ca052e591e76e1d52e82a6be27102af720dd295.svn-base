@@ -1,0 +1,196 @@
+package com.qf.meituan.fragments;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.qf.meituan.R;
+import com.qf.meituan.adapters.ShoppingCartAdapter;
+import com.qf.meituan.beans.IndianaBean;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+/**
+ * Created by Administrator on 2016/11/1 0001.
+ */
+public class ShoppingCartFragment extends Fragment {
+
+
+    private static final String TAG = "test";
+    private static AlertDialog alertDialog;
+    @BindView(R.id.lv)
+    ListView lv;
+    @BindView(R.id.sRLRoot)
+    SwipeRefreshLayout sRLRoot;
+
+    @BindView(R.id.tvCommit)
+    TextView tvCommit;
+    @BindView(R.id.llCommit)
+    LinearLayout llCommit;
+    @BindView(R.id.tvGoIndiana)
+    TextView tvGoIndiana;
+    private View view;
+    private static int lvChildCount = 0;
+    public static int isShow = 0;
+    private Handler handler = new Handler();
+    private List<IndianaBean.DataBean> data = new ArrayList<>();
+    private ShoppingCartAdapter shoppingCartAdapter;
+
+    private static TextView tvGoods;
+    private static TextView tvMoney;
+    private Button mBtn;
+    public static LinearLayout llNone;
+//    public static LinearLayout llCommit;
+
+    /**
+     * 设置按钮点击的回调
+     *
+     * @author zhy
+     */
+//    public interface FOneBtnClickListener {
+//        void onFOneBtnClick();
+//    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        if (view == null) {
+            view = inflater.inflate(R.layout.shopping_cart_fragment, container, false);
+            ButterKnife.bind(this, view);
+
+            tvGoods = ((TextView) view.findViewById(R.id.tvGoods));
+            tvMoney = ((TextView) view.findViewById(R.id.tvMoney));
+//            llCommit = ((LinearLayout) view.findViewById(R.id.llCommit));
+            llNone = ((LinearLayout) view.findViewById(R.id.llNone));
+            shoppingCartAdapter = new ShoppingCartAdapter(getContext(), data);
+            lv.setAdapter(shoppingCartAdapter);
+
+            sRLRoot.setColorSchemeResources(R.color.pink, R.color.blue, R.color.red);
+
+            PulltoRefresh();
+
+
+        }
+
+
+        isShow(isShow);
+
+
+        return view;
+    }
+
+    public static void isShow(int isShow) {
+        if (isShow == 0) {
+//            llCommit.setVisibility(View.VISIBLE);
+            llNone.setVisibility(View.VISIBLE);
+        } else {
+            llNone.setVisibility(View.GONE);
+        }
+    }
+
+
+    private void PulltoRefresh() {
+        sRLRoot.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        sRLRoot.setRefreshing(false);
+                    }
+                }, 3000);
+
+            }
+        });
+    }
+
+
+    /*
+          事件总线
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 0, sticky = true)
+    public void getData(IndianaBean.DataBean dataBean) {
+        String short_name = dataBean.getShort_name();
+        Log.e(TAG, "事件总线：IndianaBean.DataBean dataBean  getData: " + short_name);
+        data.add(dataBean);
+        ShoppingCartAdapter.nums.add(1);
+        lvChildCount += 1;
+        Log.e(TAG, "getData: " + data.size());
+        tvGoods.setText("共" + data.size() + "件商品");
+        ShoppingCartAdapter.allWoBi += 1;
+        tvMoney.setText("合计" + ShoppingCartAdapter.allWoBi + "窝币");
+        isShow += 1;
+        Log.e(TAG, "isShow: " + isShow);
+        isShow(isShow);
+    }
+
+    /*
+           删除条目改变商品的数量
+     */
+    public static void deleteItemCountChage() {
+        lvChildCount -= 1;
+        tvGoods.setText("共" + lvChildCount + "件商品");
+    }
+
+    /*
+       窝币的改变
+     */
+    public static void tvMoney(int allMoney) {
+        String allMoneyStr = String.valueOf(allMoney);
+        tvMoney.setText("合计" + allMoneyStr + "窝币");
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @OnClick(R.id.tvGoIndiana)
+    public void onClick(View v) {
+        if(goToIndiana!=null){
+            goToIndiana.shopCartToShowIndianaFragment();
+        }
+    }
+
+
+   static GoToIndiana goToIndiana;
+    public static void setGoToIndiana(GoToIndiana goToIndiana2) {
+       goToIndiana = goToIndiana2;
+    }
+
+    public interface GoToIndiana {
+        void shopCartToShowIndianaFragment();
+    }
+
+}
+
+

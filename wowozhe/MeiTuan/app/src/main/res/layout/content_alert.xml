@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_tran_i"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_tran_i"
+        android:gravity="center"
+        android:padding="10dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="个人信息"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_head2"
+            android:layout_marginLeft="120dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/my_head"/>
+        <TextView
+            android:id="@+id/tv_user1"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/iv_head2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="用  户  名:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+        <EditText
+            android:id="@+id/et_user"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/iv_head2"
+            android:layout_toRightOf="@id/tv_user1"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_below="@id/tv_user1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="31dp"
+            android:text="邮        箱:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:paddingLeft="7dp"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_phone"
+            android:layout_below="@id/tv_user1"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_below="@id/et_email"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="手  机  号:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="210dp"
+            android:paddingLeft="7dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:layout_toRightOf="@id/tv_email"
+            android:layout_below="@id/tv_phone"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="22dp"
+            />
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_below="@id/et_phone"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="年        龄:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_age"
+            android:layout_width="210dp"
+            android:paddingLeft="7dp"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:layout_toRightOf="@id/tv_email"
+            android:layout_below="@id/et_phone"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_below="@id/et_age"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="收货地址:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="210dp"
+            android:paddingLeft="7dp"
+            android:layout_height="60dp"
+            android:maxLines="2"
+            android:layout_toRightOf="@id/tv_email"
+            android:layout_below="@id/et_age"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        >
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            />
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确定"
+            />
+    </LinearLayout>
+
+</LinearLayout>

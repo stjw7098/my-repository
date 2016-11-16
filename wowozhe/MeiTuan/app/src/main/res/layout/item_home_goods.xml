@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rl_miaosha_root"
+        android:layout_width="160dp"
+        android:layout_height="250dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/sdv_home_pic"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitCenter"/>
+
+        <TextView
+            android:id="@+id/tv_home_mark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            android:background="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_home_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_below="@id/sdv_home_pic"
+            android:text="@string/tv_home_title"
+            android:textSize="13sp"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_title"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_home_rob"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_home_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_home_progress"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/red" />
+
+            <ProgressBar
+                android:id="@+id/pb_home_progress"
+                style="@style/LifyHorizontalProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_weight="1"
+                android:progress="10" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray"/>
+    </RelativeLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rl_item_root"
+        android:layout_width="160dp"
+        android:layout_height="250dp"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/sdv_home_ii_pic"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:id="@+id/tv_home_ii_mark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            android:background="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/tv_home_ii_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_below="@id/sdv_home_ii_pic"
+            android:text="@string/tv_home_title"
+            android:textSize="13sp"
+            android:singleLine="true"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_ii_title"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:layout_marginTop="3dp">
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_home_money_sign"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="13sp"
+                android:textColor="@color/red"/>
+            <TextView
+                android:id="@+id/tv_home_ii_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_home_money"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv"
+                android:textSize="13sp"
+                android:textColor="@color/red"/>
+            <TextView
+                android:id="@+id/tv_home_ii_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_home_love"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"/>
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:layout_toLeftOf="@id/tv_home_ii_love"
+                android:background="@mipmap/gv_like"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gray"/>
+    </RelativeLayout>
+</LinearLayout>
+
+
