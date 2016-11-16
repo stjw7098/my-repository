@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.qf.news.MainActivity">
+
+        <FrameLayout
+            android:id="@+id/fl_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="11">
+
+
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dadada"
+            />
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="首页"
+                android:checked="true"
+                android:textColor="@color/red"
+                style="@style/menu_style"
+                android:drawableTop="@drawable/nav_bottom_bg_home"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/rb_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="搜索"
+                android:drawableTop="@drawable/nav_bottom_bg_find"
+                style="@style/menu_style"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/rb_video"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/nav_bottom_bg_sec"
+                android:text="视频"
+                style="@style/menu_style"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/rb_my"
+                android:layout_width="0dp"
+                android:drawableTop="@drawable/nav_bottom_bg_my"
+                android:layout_height="match_parent"
+                android:text="我的"
+                style="@style/menu_style"
+                android:layout_weight="1" />
+
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+

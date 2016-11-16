@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_tran_i"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_tran_i"
+        android:gravity="center"
+        android:padding="10dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:text="个人信息"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="30dp"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_head2"
+            android:layout_marginLeft="110dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/head2"/>
+        <TextView
+            android:id="@+id/tv_user1"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/iv_head2"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="用户名:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/tv_user2"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/iv_head2"
+            android:layout_toRightOf="@id/tv_user1"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:text="随便"
+            android:layout_marginLeft="3dp"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_below="@id/tv_user1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:text="手    机:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:paddingLeft="5dp"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_phone"
+            android:layout_below="@id/tv_user1"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="15dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_below="@id/et_phone"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="邮    箱:"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="190dp"
+            android:paddingLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_email"
+            android:layout_below="@id/tv_phone"
+            android:background="@drawable/shape_info"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:layout_marginTop="22dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        >
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="取消"
+            />
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="确定"
+            />
+    </LinearLayout>
+
+</LinearLayout>

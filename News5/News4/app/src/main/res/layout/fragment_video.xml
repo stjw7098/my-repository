@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/red"
+
+        >
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            style="@style/ToolbarIcon"
+            android:background="@mipmap/arrow_left"/>
+
+        <TextView
+            android:id="@+id/tab"
+            android:layout_marginLeft="110dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/tvBack"
+            android:text="精选视频"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="18sp">
+
+        </TextView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_update_num"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#990185ae"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
+
+</LinearLayout>
